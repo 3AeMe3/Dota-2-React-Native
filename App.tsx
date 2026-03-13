@@ -8,24 +8,19 @@ const image = require('./assets/img/background.webp');
 export default function App() {
   return (
     <SafeAreaProvider>
-      <ImageBackground source={image} resizeMode="cover" className="flex-1 justify-center">
-        <SafeAreaView className="flex-1">
-          <View className="flex-1 items-center  ">
-            <Image
-              source={require('./assets/img/Dota-2-logo.webp')}
-              resizeMode="cover"
-              className="size-12"
-            />
-            <View className="w-full px-10">
-              <TextInput
-                className="border-1  w-full rounded-lg border bg-white  px-4"
-                placeholder="Busca Tu Heroe"
-              />
-            </View>
-            <HerosGrid />
+      <SafeAreaView className="my-4 flex-1 bg-[#0f2023] px-5">
+        <View>
+          <View>
+            <Text className="text-2xl text-white">Dota 2 Heroes</Text>
           </View>
-        </SafeAreaView>
-      </ImageBackground>
+          <TextInput
+            className="border-1  w-full rounded-lg border bg-white  px-4"
+            placeholder="Busca Tu Heroe"
+          />
+        </View>
+
+        <HerosGrid />
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }
