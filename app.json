@@ -1,24 +1,20 @@
 {
   "expo": {
     "name": "Dota-2",
+    "scheme": "dota2build",
     "slug": "Dota-2",
     "version": "1.0.0",
-
     "web": {
       "favicon": "./assets/favicon.png"
     },
-
     "experiments": {
-      "tsconfigPaths": true
+      "tsconfigPaths": true,
+      "typedRoutes": true
     },
-
-    "plugins": [],
-
+    "plugins": ["expo-router"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
