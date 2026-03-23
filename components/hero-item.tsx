@@ -1,8 +1,11 @@
-import { Image, ImageBackground } from 'expo-image';
-import { View, Text } from 'react-native';
+import {  ImageBackground } from 'expo-image';
+import { View, Text, Pressable } from 'react-native';
+import { Link } from 'expo-router';
 
 export default function HeroItem({ hero }) {
   return (
+    <Link href={{pathname: "/hero/[heroId]",params: {heroId: hero.id}}} asChild>
+      <Pressable>
     <View className="my-2 h-56 w-48 overflow-hidden rounded-xl ">
       <ImageBackground style={{width: "100%",height: "100%"}} source={`https://cdn.cloudflare.steamstatic.com/${hero?.img}`} contentFit='cover' contentPosition={"right"}>
         <View className="flex-1 flex-row items-end p-3 ">
@@ -13,8 +16,10 @@ export default function HeroItem({ hero }) {
         {/* <Zap color={'green'} fill={'green'} size={20} /> */}
       </View>
       </ImageBackground>
-     
       
     </View>
+
+     </Pressable>
+</Link>
   );
 }
