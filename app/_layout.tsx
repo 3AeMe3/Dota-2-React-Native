@@ -1,10 +1,13 @@
 import { NativeTabs, Icon, Label } from 'expo-router/unstable-native-tabs';
 import { StatusBar } from 'expo-status-bar';
 import '../global.css';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 export default function RootLayout() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <StatusBar style="light" />
       <NativeTabs>
         <NativeTabs.Trigger name="index">
@@ -27,6 +30,6 @@ export default function RootLayout() {
           <Icon src={require('../assets/svg/user.svg')} />
         </NativeTabs.Trigger>
       </NativeTabs>
-    </>
+    </QueryClientProvider>
   );
 }

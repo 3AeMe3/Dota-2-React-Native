@@ -1,21 +1,20 @@
-import { Image } from 'expo-image';
+import { Image, ImageBackground } from 'expo-image';
 import { View, Text } from 'react-native';
-export default function HeroItem() {
+
+export default function HeroItem({ hero }) {
   return (
-    <View className="my-2 h-56 w-48 overflow-hidden rounded-xl border border-[#0e272c] bg-[#0e272c]">
-      <Image
-        style={{ width: '100%', height: '75%' }}
-        className="h-full w-full bg-black"
-        source="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.goodfon.com%2Foriginal%2F320x400%2F5%2Fee%2Fdota-2-anti-mage-hero-geroi-personazh-antimag.jpg&f=1&nofb=1&ipt=6a9f7296779fb91c94046e1e995ea79325791ad217d5f0aeeb7b45606d7b8dfa"
-        contentFit="cover"
-      />
-      <View className="flex-1 flex-row items-center justify-between px-3 py-2 ">
+    <View className="my-2 h-56 w-48 overflow-hidden rounded-xl ">
+      <ImageBackground style={{width: "100%",height: "100%"}} source={`https://cdn.cloudflare.steamstatic.com/${hero?.img}`} contentFit='cover' contentPosition={"right"}>
+        <View className="flex-1 flex-row items-end p-3 ">
         <View className="justify-between ">
-          <Text className="text-xl text-white">Anti-Mage</Text>
-          <Text className="text-white/40 ">Melee | Agility</Text>
+          <Text className="text-xl text-white font-bold">{hero?.localized_name}</Text>
+          <Text className="text-white/60 ">Melee | Agility</Text>
         </View>
         {/* <Zap color={'green'} fill={'green'} size={20} /> */}
       </View>
+      </ImageBackground>
+     
+      
     </View>
   );
 }

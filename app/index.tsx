@@ -1,14 +1,12 @@
-import { StyleSheet } from 'react-native';
+import {  StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import Navbar from 'components/hero/navbar';
-import Hero from 'components/hero/hero';
+import HeroScreen from 'components/hero/hero-screen';
 
 export default function Page() {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Navbar />
-      <Hero />
+      <HeroScreen></HeroScreen>
     </SafeAreaView>
   );
 }
