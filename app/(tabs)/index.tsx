@@ -1,7 +1,6 @@
-import {  StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HeroScreen from '../../components/hero/hero-screen';
-
+import HeroScreen from '../../screens/home/components/hero-screen';
 export default function Page() {
   return (
     <SafeAreaView style={styles.safeArea}>

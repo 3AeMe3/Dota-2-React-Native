@@ -8,7 +8,7 @@ const Navbar = () => {
       <View style={styles.navbar}>
         <View className="flex-row items-center">
           <Image
-            source={require('../../assets/img/Dota-2-logo.webp')}
+            source={require('../assets/img/Dota-2-logo.webp')}
             style={{ height: 50, width: 50 }}
             contentFit="cover"
           />
