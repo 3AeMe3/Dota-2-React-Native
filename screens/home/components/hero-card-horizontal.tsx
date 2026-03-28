@@ -1,5 +1,6 @@
 import Badge from 'components/common/badge';
 import { ImageBackground } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function HeroHorizontalCard() {
@@ -10,9 +11,22 @@ export default function HeroHorizontalCard() {
           uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmoewalls.com%2Fwp-content%2Fuploads%2F2022%2F05%2Fjuggernaut-dota-2-thumb-364x205.jpg&f=1&nofb=1&ipt=35c5b47c464453d5faa36de180cc20a731d3fdf253f6c2e9c1a2cba38ae9cbeb',
         }}
         style={styles.imagebackground}>
+        <LinearGradient
+          colors={['rgba(0,0,0,0.85)', 'transparent', 'rgba(0,0,0,0.9)']}
+          locations={[0, 0.45, 1]}
+          className="absolute inset-0"
+        />
+
+        {/* oscurece izquierda y derecha */}
+        <LinearGradient
+          colors={['rgba(0,0,0,0.6)', 'transparent', 'rgba(0,0,0,0.6)']}
+          start={{ x: 0, y: 0.5 }}
+          end={{ x: 1, y: 0.5 }}
+          className="absolute inset-0"
+        />
         <View className=" flex-1 justify-end gap-2 px-5 py-3 ">
           <View className="flex-row items-center gap-2">
-            <Badge>CORE</Badge>
+            <Badge className=" bg-red-600/30 text-red-600">CORE</Badge>
             <Badge>MELEE</Badge>
           </View>
           <Text className="text-3xl font-bold text-white">Juggernaut</Text>

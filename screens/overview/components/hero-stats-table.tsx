@@ -25,7 +25,7 @@ export default function HeroStatsTable({ heroData }) {
         </View>
       </View>
       {/* Second row  */}
-      <View className=" flex-row items-center justify-between  border-b border-gray-200/30 py-5  ">
+      <View className=" flex-row items-center justify-between  border-b border-gray-200/30 py-5   ">
         <View className="flex-row gap-5">
           <HeroStatsItem title="MOBILITY" content={heroData?.move_speed} footer="Move Speed" />
           <HeroStatsItem content={heroData?.attack_type} footer="Range" />

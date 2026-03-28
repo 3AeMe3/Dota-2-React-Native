@@ -16,7 +16,7 @@ export default function HeroScreen() {
       data={heroes}
       keyExtractor={(item) => String(item.id)}
       renderItem={({ item }) => (
-        <View className="m-2 flex-1  ">
+        <View className="m-2 flex-1   ">
           <HeroItem hero={item} />
         </View>
       )}
