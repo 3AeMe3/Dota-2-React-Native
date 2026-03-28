@@ -1,8 +1,15 @@
+import { ReactNode } from 'react';
 import { Text } from 'react-native';
 
-export default function Badge({ children }: { children: string }) {
+type BadgeProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export default function Badge({ className, children }: BadgeProps) {
   return (
-    <Text className="rounded-xl border  border-white/20 bg-slate-800 px-2   py-1 text-sm text-white">
+    <Text
+      className={`${className ? className : 'bg-[#232426] text-white'} rounded-xl border px-2   py-1 text-sm `}>
       {children}
     </Text>
   );
