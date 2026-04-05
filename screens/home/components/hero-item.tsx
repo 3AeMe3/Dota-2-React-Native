@@ -4,7 +4,7 @@ import { Link } from 'expo-router';
 import { getPrimaryAttributeMeta } from '@/util/formatter';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function HeroItem({ hero }) {
+export default function HeroItem({ hero }: { hero: any }) {
   const { label, Icon, color: iconColor } = getPrimaryAttributeMeta(hero?.primary_attr);
 
   return (

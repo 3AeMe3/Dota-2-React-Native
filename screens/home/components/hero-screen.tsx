@@ -14,14 +14,13 @@ export default function HeroScreen() {
   return (
     <FlashList
       data={heroes}
-      keyExtractor={(item) => String(item.id)}
+      keyExtractor={(item: typeof heroes) => String(item.id)}
       renderItem={({ item }) => (
         <View className="m-2 flex-1   ">
           <HeroItem hero={item} />
         </View>
       )}
       numColumns={2}
-      estimatedItemSize={220}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 40 }}
       ListHeaderComponent={

@@ -1,23 +1,16 @@
-import { View, Text } from 'react-native';
+import { Image } from 'expo-image';
+import { View } from 'react-native';
 
 type ItemProps = {
   title: string;
   description: string;
   img: string;
 };
-export default function Item({
-  title = 'title',
-  description = 'description',
-  img = 'img',
-}: ItemProps) {
+export default function Item({ title, description, img }: ItemProps) {
   return (
-    <View className="m-1 flex-row items-center gap-2 overflow-hidden rounded-3xl bg-white/10 p-4 ">
-      <View className=" p-3">
-        <Text className="text-white">{img}</Text>
-      </View>
-      <View>
-        <Text className="font-semibold text-white">{title}</Text>
-        <Text className="text-white/40">{description}</Text>
+    <View className="m-1  flex-row  items-center justify-center  overflow-hidden    ">
+      <View className="overflow-hidden rounded-xl border border-white/30 p-1">
+        <Image source={img} contentFit="contain" style={{ width: 50, height: 50 }} />
       </View>
     </View>
   );

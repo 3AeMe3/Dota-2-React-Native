@@ -3,8 +3,8 @@ import { ScrollView, View } from 'react-native';
 
 export default function HeroFilter() {
   return (
-    <View className="h-30 my-4 w-full flex-row items-center justify-between  rounded-lg bg-slate-800 px-4 py-2">
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} className=" gap-10">
+    <View className="h-30 my-4 w-full flex-row items-center justify-between  rounded-lg  px-4 py-2">
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <Button>All Heroes</Button>
         <Button>Carry</Button>
         <Button>Mid</Button>

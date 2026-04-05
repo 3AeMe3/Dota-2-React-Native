@@ -7,3 +7,7 @@ export function getHeroes() {
 export function getLore() {
   return apiFetch('/constants/hero_lore');
 }
+
+export function getMatchups(id: number) {
+  return apiFetch(`/heroes/${id}/matchups`);
+}

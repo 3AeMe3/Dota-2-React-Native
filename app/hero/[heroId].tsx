@@ -4,19 +4,19 @@ import { Link, useLocalSearchParams } from 'expo-router';
 import HeroAttributeCard from '@/screens/overview/components/hero-attribute-card';
 import HeroStatsTable from '@/screens/overview/components/hero-stats-table';
 
-import { useHero, useLore } from '@/screens/overview/hooks/useHeroes';
+import { useHero, useLore, useMatchups } from '@/screens/overview/hooks/useHeroes';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import imageHero from 'util/imageHero';
+import { imageHero } from '@/util/imagesUrl';
 
 export default function HeroDetail() {
   const { heroId } = useLocalSearchParams<{ heroId: string }>();
   const { data = [], isLoading: heroLoading } = useHero();
   const { data: lore = {}, isLoading: loreLoading } = useLore();
+  const { data: matchups, isLoading: matchupsLoading } = useMatchups(Number(heroId));
+  const hero = data.find((h: any) => h.id === Number(heroId));
 
-  const hero = data.find((h) => h.id === Number(heroId));
-
-  if (heroLoading || loreLoading) {
+  if (heroLoading || loreLoading || matchupsLoading) {
     return <Text>Loading...</Text>;
   }
 
@@ -42,7 +42,7 @@ export default function HeroDetail() {
             <Text className="text-4xl font-semibold text-white">{hero.localized_name}</Text>
 
             <View className="mt-2 flex-row gap-4">
-              {hero?.roles.map((role) => (
+              {hero?.roles.map((role: string) => (
                 <Badge key={role}>{role}</Badge>
               ))}
             </View>
