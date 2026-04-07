@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { Bell } from 'lucide-react-native';
 
@@ -20,13 +20,6 @@ const Navbar = () => {
         <View>
           <Bell color={'white'} fill={'white'} />
         </View>
-      </View>
-      <View>
-        <TextInput
-          style={styles.search}
-          placeholder="Search heroes, builds..."
-          placeholderTextColor="gray"
-        />
       </View>
     </>
   );
