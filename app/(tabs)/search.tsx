@@ -1,8 +1,10 @@
 import { View, Text, TextInput } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import HeroFilter from '../../screens/home/components/hero-filter';
-import { useHero } from '../../screens/overview/hooks/useHeroes';
-import HeroItem from '../../screens/home/components/hero-item';
+import { useHero } from '@/screens/overview/hooks/useHeroes';
+import HeroItem from '@/screens/home/components/hero-item';
+import Typography from '@/components/common/typography';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Search() {
   const { data: heroes, isLoading: isHeroLoading } = useHero();
@@ -24,12 +26,14 @@ export default function Search() {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 40 }}
       ListHeaderComponent={
-        <View className="mt-10 pt-2">
-          <View className="my-5  gap-5 ">
+        <SafeAreaView>
+          <View className="my-5  gap-5 px-5 ">
             <View className="flex-row items-center  justify-center">
-              <Text className="text-xl font-bold text-white">Buscar héroe</Text>
+              <Typography variant="title" className="text-2xl">
+                Buscar héroe
+              </Typography>
             </View>
-            <View className="mx-auto w-3/4 overflow-hidden  rounded-2xl border border-white/20 bg-white/10">
+            <View className=" overflow-hidden  rounded-2xl border border-white/20 bg-white/10">
               <TextInput
                 className="w-full px-4 text-white"
                 placeholder="Escribe el nombre del heroe.."
@@ -38,7 +42,7 @@ export default function Search() {
             </View>
             <HeroFilter />
           </View>
-        </View>
+        </SafeAreaView>
       }
     />
   );

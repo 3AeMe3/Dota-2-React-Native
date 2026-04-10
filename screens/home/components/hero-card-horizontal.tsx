@@ -1,6 +1,6 @@
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import Badge from '@/components/common/badge';
+import Typography from '@/components/common/typography';
 
 export default function HeroHorizontalCard() {
   return (
@@ -18,25 +18,28 @@ export default function HeroHorizontalCard() {
           imageStyle={styles.imageStyle}>
           <View className="my-3 flex-1 justify-between gap-2 px-5 py-3">
             <View className="flex-row items-center gap-2">
-              <Text className="text-orange-400">SIGUE APRENDIENDO</Text>
+              <Typography variant="title" color="orange">
+                SIGUE APRENDIENDO
+              </Typography>
             </View>
 
             <View className="flex-row items-center gap-4">
-              <Text className="text-white">icon</Text>
+              <Typography>icon</Typography>
 
               <View className="gap-2">
-                <Text className="text-xl font-semibold text-white">Juggernaut</Text>
-
+                <Typography variant="title" className="text-xl">
+                  Juggernaut
+                </Typography>
                 <View className="flex-row gap-2">
-                  <Text className="text-white/60">Fácil</Text>
-                  <Text className="text-white/60">Fuerza</Text>
-                  <Text className="text-white/60">Carry</Text>
+                  <Typography color="gray">Fácil</Typography>
+                  <Typography color="gray">Fuerza</Typography>
+                  <Typography color="gray">Carry</Typography>
                 </View>
               </View>
             </View>
 
             <Pressable className="mr-auto rounded-lg border border-red-800 bg-red-900/40 px-5 py-1">
-              <Text className="text-white">Ver Guía</Text>
+              <Typography>Ver Guía</Typography>
             </Pressable>
           </View>
         </ImageBackground>

@@ -1,61 +1,86 @@
 import { View, Text } from 'react-native';
-import HeroHorizontalCard from './hero-card-horizontal';
-import Navbar from '../../../components/navbar';
+import { Image } from 'expo-image';
+
 import { Search } from 'lucide-react-native';
+
+import HeroHorizontalCard from './hero-card-horizontal';
+import Navbar from '@/components/navbar';
 import CardContainer from '@/components/card-container';
+import { imageHero } from '@/util/imagesUrl';
+import Typography from '@/components/common/typography';
 
 export default function HeroScreen() {
   return (
-    <View className="pt-2">
+    <View>
       <Navbar />
       <View className="my-2 ">
         <HeroHorizontalCard />
         <View>
-          <Text className="text-lg text-white/60">ACCESO RÁPIDO</Text>
+          <Typography variant="title" color="gray">
+            ACCESO RÁPIDO
+          </Typography>
           <View className="my-2 flex-row justify-between gap-3">
             <CardContainer className="h-32  items-center justify-center">
               <Search color={'gold'} />
-              <Text className="text-wrap text-center text-white">Buscar Heroe</Text>
+              <Typography color="gray" className="text-wrap text-center ">
+                Buscar Heroe
+              </Typography>
             </CardContainer>
             <CardContainer className="h-32  items-center justify-center">
               <Search color={'gold'} />
-              <Text className="text-wrap text-center text-white">Guias</Text>
+              <Typography color="gray" className="text-wrap text-center ">
+                Guías
+              </Typography>
             </CardContainer>
 
-            <CardContainer className=" h-32  flex-1 items-center justify-center rounded-lg bg-white/10 ">
+            <CardContainer className="h-32 items-center justify-center">
               <Search color={'gold'} />
-              <Text className="text-wrap text-center text-white">Glosario</Text>
+              <Typography color="gray" className="text-wrap text-center ">
+                Glosario
+              </Typography>
             </CardContainer>
+
             <CardContainer className="h-32  items-center justify-center">
               <Search color={'gold'} />
-              <Text className="text-wrap text-center text-white">Errores Comunes</Text>
+              <Typography color="gray" className="text-wrap text-center ">
+                Errores Comunes
+              </Typography>
             </CardContainer>
           </View>
           <View>
             <Text>Tu Progreso</Text>
             <View className="flex-row justify-between gap-2 ">
               <CardContainer>
-                <Text className="text-white/60">Racha De aprendizaje</Text>
-                <Text className="text-lg font-semibold text-white">7 dias</Text>
+                <Typography color="gray">Racha De aprendizaje</Typography>
+                <Typography className="font-inter-semibold text-xl">7 dias</Typography>
                 <Text className="text-white">barra de progreso</Text>
               </CardContainer>
               <CardContainer>
-                <Text className="text-white/60">Guias Completadas</Text>
-                <Text className="text-lg font-semibold text-white ">12/24</Text>
+                <Typography color="gray">Guías Completadas</Typography>
+
+                <Typography className="font-inter-semibold text-xl">12 / 24</Typography>
                 <Text className="text-white">barra de progreso</Text>
               </CardContainer>
             </View>
           </View>
           <View className="my-6 h-36 ">
-            <CardContainer
-              size={60}
-              imageUrl="/apps/dota2/images/dota_react/heroes/skeleton_king.png?"
-              className=" bg-gradient-to-r from-orange-500 to-pink-500">
-              <Text className="font-semibold text-orange-300">ARTICULO DEL DIA </Text>
-              <Text className="text-lg font-semibold text-white">
-                3 Errores que te hacen perder la linea
-              </Text>
-              <Text className="text-white/60">Evitalos y mejora desde el minuto 0</Text>
+            <CardContainer className=" flex-row items-center">
+              <View className="gap-2">
+                <Typography color="orange" variant="title">
+                  ARTÍCULO DEL DÍA
+                </Typography>
+                <Typography className="text-md font-inter-semibold ">
+                  3 Errores que te hacen perder la linea
+                </Typography>
+                <Typography color="gray">Evitalos y mejora desde el minuto 0</Typography>
+              </View>
+              <View className="mx-auto">
+                <Image
+                  style={{ width: 60, height: 60 }}
+                  contentFit="cover"
+                  source={imageHero('/apps/dota2/images/dota_react/heroes/mars.png?')}
+                />
+              </View>
             </CardContainer>
           </View>
         </View>

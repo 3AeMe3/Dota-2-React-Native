@@ -1,16 +1,16 @@
-import { ReactNode } from 'react';
-import { Text } from 'react-native';
+import Typography from './typography';
 
 type BadgeProps = {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 };
 
 export default function Badge({ className, children }: BadgeProps) {
   return (
-    <Text
+    <Typography
+      variant="body"
       className={`${className ? className : 'bg-[#232426] text-white '} rounded-xl  px-2  py-1 text-sm `}>
       {children}
-    </Text>
+    </Typography>
   );
 }

@@ -8,6 +8,7 @@ import { useHero, useLore, useMatchups } from '@/screens/overview/hooks/useHeroe
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { imageHero } from '@/util/imagesUrl';
+import Typography from '@/components/common/typography';
 
 export default function HeroDetail() {
   const { heroId } = useLocalSearchParams<{ heroId: string }>();
@@ -37,9 +38,13 @@ export default function HeroDetail() {
           style={{ height: 235, width: '100%' }}
           contentFit="contain">
           <View className="flex-1 flex-col justify-end p-3">
-            <Text className="text-lg font-semibold text-green-300">Agility Hero | Melee</Text>
+            <Typography variant="body" color="gray">
+              Agility Hero | Melee
+            </Typography>
 
-            <Text className="text-4xl font-semibold text-white">{hero.localized_name}</Text>
+            <Typography variant="title" className="text-3xl">
+              {hero.localized_name}
+            </Typography>
 
             <View className="mt-2 flex-row gap-4">
               {hero?.roles.map((role: string) => (
@@ -52,24 +57,40 @@ export default function HeroDetail() {
         <View className="px-5">
           <View className="mt-5 h-24 w-full flex-row gap-5">
             <View className="h-full flex-1 items-center justify-center rounded-lg bg-[#15151a]">
-              <Text className="text-gray-400/80">Winrate</Text>
-              <Text className="text-xl text-green-400">45%</Text>
+              <Typography variant="body" color="gray">
+                Winrate
+              </Typography>
+              <Typography variant="body" color="green">
+                45%
+              </Typography>
             </View>
 
             <View className="h-full flex-1 items-center justify-center rounded-lg bg-[#15151a]">
-              <Text className="text-gray-400/80">Pick Rate</Text>
-              <Text className="text-xl text-red-600">12%</Text>
+              <Typography variant="body" color="gray">
+                Pick Rate
+              </Typography>
+              <Typography variant="body" color="cyan">
+                12%
+              </Typography>
             </View>
 
             <View className="h-full flex-1 items-center justify-center rounded-lg bg-[#15151a]">
-              <Text className="text-gray-400/80">Dificultad</Text>
-              <Text className="text-xl text-red-400">Medio</Text>
+              <Typography variant="body" color="gray">
+                Dificultad
+              </Typography>
+              <Typography variant="body" color="red" className="text-xl">
+                Medio
+              </Typography>
             </View>
           </View>
 
           <View className="my-5">
-            <Text className="mb-3 text-xl text-white">Overview</Text>
-            <Text className="text-gray-400/70">{overview}</Text>
+            <Typography variant="title" className="text-xl">
+              OverView
+            </Typography>
+            <Typography variant="body" color="gray">
+              {overview}
+            </Typography>
           </View>
 
           <HeroAttributeCard heroData={hero} />

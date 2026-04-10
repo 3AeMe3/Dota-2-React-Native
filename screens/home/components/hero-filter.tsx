@@ -1,5 +1,5 @@
-import Button from 'components/common/button';
 import { ScrollView, View } from 'react-native';
+import Button from '@/components/common/button';
 
 export default function HeroFilter() {
   return (

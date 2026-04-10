@@ -7,7 +7,19 @@ module.exports = {
   ],
   presets: [require('nativewind/preset')],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sora-regular': ['Sora'],
+        'sora-medium': ['Sora_Medium'],
+        'sora-semibold': ['Sora_SemiBold'],
+        'sora-bold': ['Sora_Bold'],
+
+        'inter-regular': ['Inter'],
+        'inter-medium': ['Inter_Medium'],
+        'inter-semibold': ['Inter_SemiBold'],
+        'inter-bold': ['Inter_Bold'],
+      },
+    },
   },
   plugins: [],
 };

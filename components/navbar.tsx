@@ -1,6 +1,7 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { Bell } from 'lucide-react-native';
+import Typography from './common/typography';
 
 const Navbar = () => {
   return (
@@ -13,8 +14,10 @@ const Navbar = () => {
             contentFit="cover"
           />
           <View>
-            <Text style={styles.navbar_text}>Welcome Back</Text>
-            <Text style={styles.title}>3AeMe</Text>
+            <Typography color="gray">Wellcome Back</Typography>
+            <Typography variant="title" className="text-2xl">
+              3AeMe
+            </Typography>
           </View>
         </View>
         <View>
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'Sora_SemiBold',
   },
   navbar_text: {
     color: 'gray',

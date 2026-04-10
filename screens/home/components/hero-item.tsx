@@ -1,8 +1,9 @@
 import { ImageBackground } from 'expo-image';
-import { View, Text, Pressable } from 'react-native';
+import { View, Pressable } from 'react-native';
 import { Link } from 'expo-router';
 import { getPrimaryAttributeMeta } from '@/util/formatter';
 import { LinearGradient } from 'expo-linear-gradient';
+import Typography from '@/components/common/typography';
 
 export default function HeroItem({ hero }: { hero: any }) {
   const { label, Icon, color: iconColor } = getPrimaryAttributeMeta(hero?.primary_attr);
@@ -40,10 +41,12 @@ export default function HeroItem({ hero }: { hero: any }) {
             </View>
             <View className="flex-1 flex-row items-end p-3 ">
               <View className="justify-between ">
-                <Text className="text-xl font-bold text-white">{hero?.localized_name}</Text>
-                <Text className="text-white/60 ">
+                <Typography variant="title" className="text-lg">
+                  {hero?.localized_name}
+                </Typography>
+                <Typography variant="gray">
                   {hero?.attack_type} | {label}
-                </Text>
+                </Typography>
               </View>
             </View>
           </ImageBackground>
