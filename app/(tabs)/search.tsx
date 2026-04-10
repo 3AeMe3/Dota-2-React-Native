@@ -5,17 +5,23 @@ import { useHero } from '@/screens/overview/hooks/useHeroes';
 import HeroItem from '@/screens/home/components/hero-item';
 import Typography from '@/components/common/typography';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useState } from 'react';
 
 export default function Search() {
   const { data: heroes, isLoading: isHeroLoading } = useHero();
+  const [isActive, setIsActive] = useState<'todos' | 'str' | 'agi' | 'int' | 'all'>('todos');
 
   if (isHeroLoading) return <Text className="text-white">Loading...</Text>;
+  const heroFilter = heroes.filter(hero =>
+    isActive === 'todos' ? hero : hero.primary_attr === isActive
+  );
 
   // const [heroName, setHeroName] = useState('');
   // const [value] = useDebounce(heroName, 700);
+  console.log(heroFilter);
   return (
     <FlashList
-      data={heroes}
+      data={heroFilter}
       keyExtractor={(item: typeof heroes) => String(item.id)}
       renderItem={({ item }) => (
         <View className="m-2 flex-1   ">
@@ -30,7 +36,7 @@ export default function Search() {
           <View className="my-5  gap-5 px-5 ">
             <View className="flex-row items-center  justify-center">
               <Typography variant="title" className="text-2xl">
-                Buscar héroe
+                Buscar Héroe
               </Typography>
             </View>
             <View className=" overflow-hidden  rounded-2xl border border-white/20 bg-white/10">
@@ -40,7 +46,7 @@ export default function Search() {
                 placeholderTextColor={'gray'}
               />
             </View>
-            <HeroFilter />
+            <HeroFilter isActive={isActive} setIsActive={setIsActive} />
           </View>
         </SafeAreaView>
       }

@@ -28,13 +28,6 @@ export default function HeroItem({ hero }: { hero: any }) {
               className="absolute inset-0"
             />
 
-            {/* oscurece izquierda y derecha */}
-            <LinearGradient
-              colors={['rgba(0,0,0,0.6)', 'transparent', 'rgba(0,0,0,0.6)']}
-              start={{ x: 0, y: 0.5 }}
-              end={{ x: 1, y: 0.5 }}
-              className="absolute inset-0"
-            />
             <View className="absolute inset-0 rounded-3xl border border-cyan-200/10"></View>
             <View className="m-3 self-end rounded-3xl bg-black p-2">
               <Icon size={18} color={iconColor} strokeWidth={2} />
@@ -44,7 +37,7 @@ export default function HeroItem({ hero }: { hero: any }) {
                 <Typography variant="title" className="text-lg">
                   {hero?.localized_name}
                 </Typography>
-                <Typography variant="gray">
+                <Typography color="gray">
                   {hero?.attack_type} | {label}
                 </Typography>
               </View>
