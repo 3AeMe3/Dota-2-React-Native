@@ -6,19 +6,29 @@ import HeroItem from '@/screens/home/components/hero-item';
 import Typography from '@/components/common/typography';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
+import { useDebounce } from 'use-debounce';
 
 export default function Search() {
+  const [heroName, setHeroName] = useState('');
+  const [value] = useDebounce(heroName, 700);
+
   const { data: heroes, isLoading: isHeroLoading } = useHero();
   const [isActive, setIsActive] = useState<'todos' | 'str' | 'agi' | 'int' | 'all'>('todos');
 
   if (isHeroLoading) return <Text className="text-white">Loading...</Text>;
-  const heroFilter = heroes.filter(hero =>
+  let heroFilter = heroes.filter(hero =>
     isActive === 'todos' ? hero : hero.primary_attr === isActive
   );
 
-  // const [heroName, setHeroName] = useState('');
-  // const [value] = useDebounce(heroName, 700);
-  console.log(heroFilter);
+  if (heroName) {
+    heroFilter = heroes.filter(hero =>
+      hero.localized_name.toLowerCase().includes(value.toLowerCase())
+    );
+  }
+  const handleHeroSearch = e => {
+    setHeroName(e);
+  };
+
   return (
     <FlashList
       data={heroFilter}
@@ -44,8 +54,10 @@ export default function Search() {
                 className="w-full px-4 text-white"
                 placeholder="Escribe el nombre del heroe.."
                 placeholderTextColor={'gray'}
+                onChangeText={handleHeroSearch}
               />
             </View>
+            <Typography>Este es el value: {value}</Typography>
             <HeroFilter isActive={isActive} setIsActive={setIsActive} />
           </View>
         </SafeAreaView>

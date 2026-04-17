@@ -8,6 +8,7 @@ import Item from '@/screens/buils/components/item';
 import { useFindItem, useItems } from '@/screens/buils/queries/useItems';
 import { findItemByPhase } from '@/screens/buils/utils/findItemByPhase';
 import { imageItem } from '@/util/imagesUrl';
+import HeaderScreen from '@/components/header-screen';
 
 export default function Builds() {
   const { heroId } = useLocalSearchParams<{ heroId: string }>();
@@ -29,14 +30,7 @@ export default function Builds() {
   return (
     <SafeAreaView className="flex-1 px-4">
       <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}>
-        <View className=" flex-row items-center justify-between gap-6 border-b border-white/30 py-4 ">
-          <Undo2 color={'white'} />
-          <View className=" mr-auto">
-            <Text className=" text-2xl font-semibold text-white">Juggernaut Builds {heroId}</Text>
-            <Text className=" text-white opacity-35">Core Carry Build | Patch 7.35d</Text>
-          </View>
-          <Settings color={'white'} />
-        </View>
+        <HeaderScreen title={'Guia'} icon={Settings} />
         <View className="mx-auto my-5 w-full overflow-hidden rounded-3xl border border-[#911d05]  ">
           <LinearGradient
             start={[0, 0]}
@@ -60,7 +54,7 @@ export default function Builds() {
             <Text className="text-white">640 Gold</Text>
           </View>
           <View className="mx-auto my-2 w-3/4 flex-row flex-wrap  items-center justify-center ">
-            {startItems.map((item) => (
+            {startItems.map(item => (
               <Item
                 key={item.name}
                 title={item.name}
@@ -76,7 +70,7 @@ export default function Builds() {
             <Text className="text-white">~10-15 Min</Text>
           </View>
           <View className="mx-auto my-2 w-3/4 flex-row flex-wrap  items-center justify-center ">
-            {earlyItems.map((item) => (
+            {earlyItems.map(item => (
               <Item
                 key={item.name}
                 title={item.name}
@@ -93,7 +87,7 @@ export default function Builds() {
             <Text className="text-white">~30-35 Min</Text>
           </View>
           <View className="mx-auto my-2 w-3/4 flex-row flex-wrap  items-center justify-center ">
-            {midItems.map((item) => (
+            {midItems.map(item => (
               <Item
                 key={item.name}
                 title={item.name}
@@ -110,7 +104,7 @@ export default function Builds() {
             <Text className="text-white">~35+ Min</Text>
           </View>
           <View className="mx-auto my-2 w-3/4 flex-row flex-wrap  items-center justify-center ">
-            {lateItems.map((item) => (
+            {lateItems.map(item => (
               <Item
                 key={item.name}
                 title={item.name}
