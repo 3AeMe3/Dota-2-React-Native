@@ -27,7 +27,7 @@ export default function Button({
       className={`mx-2 rounded-3xl   px-3 py-2 ${className} ${isActive ? 'border border-red-800 bg-red-900/40' : 'border border-white/20 bg-white/10'}`}>
       {Icon && <Icon color={iconColor} size={iconSize} />}
 
-      <Typography color="gray">{children}</Typography>
+      <Typography color={isActive ? 'white' : 'gray'}>{children}</Typography>
     </Pressable>
   );
 }

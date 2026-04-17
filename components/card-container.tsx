@@ -13,7 +13,7 @@ export default function CardContainer({
 }: CardContainerProps) {
   return (
     <View
-      className={`flex-1 gap-3 rounded-lg  p-5  ${className} ${container ? ' border border-white/10 bg-[#0e0e10]' : ''}   `}>
+      className={` gap-3 rounded-lg  p-5  ${className} ${container ? ' border border-white/10 bg-[#0e0e10]' : ''}   `}>
       {children}
     </View>
   );
