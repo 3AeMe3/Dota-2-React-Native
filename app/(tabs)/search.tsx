@@ -5,28 +5,29 @@ import { useHero } from '@/screens/overview/hooks/useHeroes';
 import HeroItem from '@/screens/home/components/hero-item';
 import Typography from '@/components/common/typography';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useDebounce } from 'use-debounce';
 
 export default function Search() {
   const [heroName, setHeroName] = useState('');
   const [value] = useDebounce(heroName, 700);
-
   const { data: heroes, isLoading: isHeroLoading } = useHero();
   const [isActive, setIsActive] = useState<'todos' | 'str' | 'agi' | 'int' | 'all'>('todos');
 
-  if (isHeroLoading) return <Text className="text-white">Loading...</Text>;
-  let heroFilter = heroes.filter(hero =>
-    isActive === 'todos' ? hero : hero.primary_attr === isActive
-  );
+  const heroFilter = useMemo(() => {
+    return heroes?.filter(hero => {
+      const matchesType = isActive === 'todos' ? hero : hero.primary_attr === isActive;
 
-  if (heroName) {
-    heroFilter = heroes.filter(hero =>
-      hero.localized_name.toLowerCase().includes(value.toLowerCase())
-    );
-  }
-  const handleHeroSearch = e => {
-    setHeroName(e);
+      const matchesName = !value || hero.localized_name.toLowerCase().includes(value.toLowerCase());
+
+      return matchesType && matchesName;
+    });
+  }, [heroes, isActive, value]);
+
+  if (isHeroLoading) return <Text className="text-white">Loading...</Text>;
+
+  const handleHeroSearch = (text: string) => {
+    setHeroName(text);
   };
 
   return (
@@ -39,6 +40,7 @@ export default function Search() {
         </View>
       )}
       numColumns={2}
+      maintainVisibleContentPosition={{ disabled: true }}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 40 }}
       ListHeaderComponent={
@@ -57,7 +59,6 @@ export default function Search() {
                 onChangeText={handleHeroSearch}
               />
             </View>
-            <Typography>Este es el value: {value}</Typography>
             <HeroFilter isActive={isActive} setIsActive={setIsActive} />
           </View>
         </SafeAreaView>
