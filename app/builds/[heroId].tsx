@@ -1,5 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
-import { Settings, Sparkle, Undo2 } from 'lucide-react-native';
+import { Settings, Sparkle } from 'lucide-react-native';
 import { Text, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';

@@ -2,6 +2,7 @@ import { View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { Bell } from 'lucide-react-native';
 import Typography from './common/typography';
+import { Link } from 'expo-router';
 
 const Navbar = () => {
   return (
@@ -21,7 +22,9 @@ const Navbar = () => {
           </View>
         </View>
         <View>
-          <Bell color={'white'} fill={'white'} />
+          <Link href={{ pathname: './notification' }}>
+            <Bell color={'white'} fill={'white'} />
+          </Link>
         </View>
       </View>
     </>

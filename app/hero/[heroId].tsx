@@ -14,10 +14,10 @@ export default function HeroDetail() {
   const { heroId } = useLocalSearchParams<{ heroId: string }>();
   const { data = [], isLoading: heroLoading } = useHero();
   const { data: lore = {}, isLoading: loreLoading } = useLore();
-  const { data: matchups, isLoading: matchupsLoading } = useMatchups(Number(heroId));
+  // const { data: matchups, isLoading: matchupsLoading } = useMatchups(Number(heroId));
   const hero = data.find((h: any) => h.id === Number(heroId));
 
-  if (heroLoading || loreLoading || matchupsLoading) {
+  if (heroLoading || loreLoading) {
     return <Text>Loading...</Text>;
   }
 

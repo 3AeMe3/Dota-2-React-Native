@@ -1,4 +1,4 @@
-import apiFetch from 'services/client';
+import apiFetch from '@/services/client';
 
 export function getHeroes() {
   return apiFetch('/heroStats');
