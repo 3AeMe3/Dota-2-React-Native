@@ -1,7 +1,7 @@
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { Image } from 'expo-image';
 
-import { Search } from 'lucide-react-native';
+import { Search, LucideBookOpen, BookA, ShieldX } from 'lucide-react-native';
 
 import HeroHorizontalCard from './hero-card-horizontal';
 import Navbar from '@/components/navbar';
@@ -17,33 +17,51 @@ export default function HeroScreen() {
       <View className="my-2 ">
         <HeroHorizontalCard />
         <View>
-          <Typography>ACCESO RAPIDO</Typography>
-          <View className="my-2 flex-row justify-around gap-3">
-            <Link href={'/search'}>
-              <CardContainer className="h-32 w-32  items-center justify-center ">
+          <Typography variant="title" color="gray">
+            ACCESO RAPIDO
+          </Typography>
+          <View className="my-10 flex-row items-center  justify-center gap-2 ">
+            <Link href={'/search'} asChild>
+              <Pressable className="flex-1 items-center  gap-2">
                 <Search color={'gold'} />
 
-                <Typography className="text-wrap text-center ">Buscar Heroes</Typography>
-              </CardContainer>
+                <Typography variant="title" className="text-wrap text-center ">
+                  Buscar Heroes
+                </Typography>
+              </Pressable>
             </Link>
 
-            <Link href={'/glosario'}>
-              <CardContainer className="h-32 w-32  items-center justify-center ">
-                <Search color={'gold'} />
+            <Link href={'/glosario'} asChild>
+              <Pressable className=" h-full flex-1 items-center gap-2">
+                <BookA color={'gold'} />
+                <Typography variant="title" className="text-wrap text-center ">
+                  Glosario
+                </Typography>
+              </Pressable>
+            </Link>
+            <Link href={'./guide'} asChild>
+              <Pressable className=" h-full flex-1 items-center gap-2">
+                <LucideBookOpen color={'gold'} />
 
-                <Typography className="text-wrap text-center ">Glosario</Typography>
-              </CardContainer>
+                <Typography variant="title" className="text-wrap text-center ">
+                  Guia
+                </Typography>
+              </Pressable>
             </Link>
 
-            <Link href={'/fails'}>
-              <CardContainer className="h-32 w-32  items-center justify-center ">
-                <Search color={'gold'} />
-                <Typography className="text-wrap text-center ">Errores Comunes</Typography>
-              </CardContainer>
+            <Link href={'/fails'} asChild>
+              <Pressable className="h-full flex-1 items-center gap-2  ">
+                <ShieldX color={'gold'} />
+                <Typography variant="title" className="text-wrap text-center ">
+                  Errores Comunes
+                </Typography>
+              </Pressable>
             </Link>
           </View>
           <View>
-            <Text>Tu Progreso</Text>
+            <Typography variant="title" color="gray">
+              TU PROGRESO
+            </Typography>
             <View className="flex-row justify-between gap-2 ">
               <CardContainer>
                 <Typography>Racha De aprendizaje</Typography>
